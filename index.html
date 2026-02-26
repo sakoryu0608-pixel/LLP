@@ -171,38 +171,21 @@
             background-position: center center;
         }
 
-        /* テキストオーバーレイ（Figmaデザインに忠実：半透明白パネル + 濃紺テキスト） */
+        /* テキストオーバーレイ（生成画像を使用） */
         .hero-re__text-overlay {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             z-index: 2;
-            text-align: center;
-            background: rgba(255, 255, 255, 0.78);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 55px 70px 45px;
-            width: 48%;
-            max-width: 700px;
-            min-width: 420px;
+            width: 70%;
+            max-width: 900px;
+            min-width: 380px;
         }
-        .hero-re__main-copy {
-            font-family: 'Noto Serif JP', 'Noto Sans JP', serif;
-            font-size: clamp(1.5rem, 2.2vw, 2.5rem);
-            font-weight: 700;
-            color: #042546;
-            line-height: 1.6;
-            letter-spacing: 0.04em;
-            margin-bottom: 24px;
-        }
-        .hero-re__sub-copy {
-            font-family: 'Noto Sans JP', sans-serif;
-            font-size: clamp(0.7rem, 0.85vw, 0.85rem);
-            font-weight: 400;
-            color: rgba(4, 37, 70, 0.65);
-            line-height: 1.8;
-            letter-spacing: 0.03em;
+        .hero-re__text-overlay img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
         /* バッジ群（左下固定） */
@@ -670,10 +653,9 @@
             <div class="hero-re__image-box">
                 <!-- 背景画像 -->
                 <div class="hero-re__bg"></div>
-                <!-- テキスト（右側中央） -->
+                <!-- テキストオーバーレイ画像（ナノバナナ生成） -->
                 <div class="hero-re__text-overlay">
-                    <p class="hero-re__main-copy">「法定雇用率」の達成と、<br>「現場負担の最小化」を<br>両立する新しい選択肢。</p>
-                    <p class="hero-re__sub-copy">独自のAI教育×リモート管理技術で実現する、<br>持続可能な障害者雇用モデル「エシカルコミュニティLLP」。</p>
+                    <img src="./hero-text-overlay.png" alt="「法定雇用率」の達成と、「現場負担の最小化」を両立する新しい選択肢。">
                 </div>
                 <!-- バッジ（左下） -->
                 <div class="hero-re__badges">
