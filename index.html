@@ -171,33 +171,38 @@
             background-position: center center;
         }
 
-        /* テキストオーバーレイ（Figmaデザインに忠実：右側中央にメインテキスト、左下にバッジ） */
+        /* テキストオーバーレイ（Figmaデザインに忠実：半透明白パネル + 濃紺テキスト） */
         .hero-re__text-overlay {
             position: absolute;
             top: 50%;
-            right: 5%;
-            transform: translateY(-50%);
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 2;
             text-align: center;
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 55px 70px 45px;
+            width: 48%;
+            max-width: 700px;
+            min-width: 420px;
         }
         .hero-re__main-copy {
             font-family: 'Noto Serif JP', 'Noto Sans JP', serif;
-            font-size: clamp(1.6rem, 2.5vw, 2.8rem);
+            font-size: clamp(1.5rem, 2.2vw, 2.5rem);
             font-weight: 700;
-            color: #ffffff;
-            line-height: 1.65;
+            color: #042546;
+            line-height: 1.6;
             letter-spacing: 0.04em;
-            text-shadow: 0 2px 12px rgba(0,0,0,0.6), 0 0 30px rgba(0,0,0,0.4);
-            margin-bottom: 16px;
+            margin-bottom: 24px;
         }
         .hero-re__sub-copy {
             font-family: 'Noto Sans JP', sans-serif;
-            font-size: clamp(0.75rem, 0.95vw, 0.9rem);
+            font-size: clamp(0.7rem, 0.85vw, 0.85rem);
             font-weight: 400;
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(4, 37, 70, 0.65);
             line-height: 1.8;
             letter-spacing: 0.03em;
-            text-shadow: 0 1px 6px rgba(0,0,0,0.5);
         }
 
         /* バッジ群（左下固定） */
