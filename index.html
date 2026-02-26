@@ -166,44 +166,76 @@
         .hero-re__bg {
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background-image: url('./hero-main.webp');
+            background-image: url('./top-bg.png');
             background-size: cover;
-            background-position: center top;
+            background-position: center center;
+        }
+        /* 背景に半透明の濃紺オーバーレイ */
+        .hero-re__bg::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(
+                to right,
+                rgba(4, 37, 70, 0.72) 0%,
+                rgba(4, 37, 70, 0.45) 50%,
+                rgba(4, 37, 70, 0.15) 100%
+            );
         }
 
-        /* テキストオーバーレイ画像 */
-        .hero-re__text-overlay {
+        /* テキストコンテンツエリア */
+        .hero-re__content {
             position: absolute;
-            top: 50%;
-            right: 5%;
-            transform: translateY(-50%);
-            width: 45%;
-            max-width: 580px;
-            pointer-events: none;
+            top: 0; left: 0; right: 0; bottom: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 6% 0 6%;
+            z-index: 2;
         }
-        .hero-re__text-overlay img {
-            width: 100%;
-            height: auto;
+        .hero-re__main-copy {
+            font-family: 'Noto Serif JP', 'Noto Sans JP', serif;
+            font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.65;
+            letter-spacing: 0.04em;
+            text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+            margin-bottom: 20px;
+            max-width: 680px;
+        }
+        .hero-re__main-copy em {
+            font-style: normal;
+            color: #f5c842;
+        }
+        .hero-re__sub-copy {
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: clamp(0.85rem, 1.1vw, 1.05rem);
+            font-weight: 400;
+            color: rgba(255,255,255,0.92);
+            line-height: 1.8;
+            letter-spacing: 0.03em;
+            text-shadow: 0 1px 6px rgba(0,0,0,0.4);
+            margin-bottom: 36px;
+            max-width: 600px;
         }
 
         /* バッジ群 */
         .hero-re__badges {
-            position: absolute;
-            bottom: 60px;
-            left: 5%;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 6px;
+            gap: 8px;
         }
         .hero-re__badges span {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 9px 20px;
             color: #fff;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: bold;
             font-family: 'Noto Sans JP', sans-serif;
-            letter-spacing: 0.03em;
+            letter-spacing: 0.04em;
+            border-radius: 2px;
         }
         .b-red1 { background-color: #c80b1b; }
         .b-orange { background-color: #f39800; }
@@ -645,11 +677,21 @@
             </div>
         </header>
 
-        <!-- Hero Section (Figma Design) -->
+        <!-- Hero Section -->
         <section class="hero-re">
             <div class="hero-re__image-box">
-                <!-- 背景画像（テキスト・バッジ含む） -->
+                <!-- 背景画像 + オーバーレイ -->
                 <div class="hero-re__bg"></div>
+                <!-- テキスト・バッジコンテンツ -->
+                <div class="hero-re__content">
+                    <p class="hero-re__main-copy">「法定雇用率」の達成と、<br>「現場負担の最小化」を<br>両立する新しい選択肢。</p>
+                    <p class="hero-re__sub-copy">独自のAI教育×リモート管理技術で実現する、<br>持続可能な障害者雇用モデル「エシカルコミュニティLLP」。</p>
+                    <div class="hero-re__badges">
+                        <span class="b-red1">初期採用コスト0円</span>
+                        <span class="b-orange">弁護士・社労士監修</span>
+                        <span class="b-red2">経済産業省推進のLLPスキーム</span>
+                    </div>
+                </div>
             </div>
         </section>
 
