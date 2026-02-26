@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>エシカルコミュニティLLP | 障害者雇用の新しい選択肢</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap" rel="stylesheet">
     <style>
         /* ==========================================================================
            Reset & Base Styles & Variables
@@ -48,9 +51,97 @@
         .btn--outline { background-color: transparent; border: 2px solid var(--color-accent); color: var(--color-accent); }
 
         /* ==========================================================================
-           Header & Hero Section
+           Header & Hero Section (Figma Design)
            ========================================================================== */
+
+        /* ---- Wrapper ---- */
         .top-area-wrapper {
+            background-color: #ffffff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ---- Navigation Header ---- */
+        .header {
+            display: flex;
+            height: 80px;
+            align-items: stretch;
+            width: 100%;
+            position: relative;
+            z-index: 100;
+            background-color: #ffffff;
+        }
+
+        /* Logo Area - 濃紺背景・右斜めカット */
+        .header__logo-area {
+            width: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #042546;
+            clip-path: polygon(0 0, 100% 0, calc(100% - 30px) 100%, 0 100%);
+            flex-shrink: 0;
+            padding-left: 40px;
+            padding-right: 50px;
+        }
+        .logo-amu-img {
+            width: 120px;
+            height: auto;
+            display: block;
+        }
+        /* 旧ロゴ要素は非表示 */
+        .logo-mark, .logo-text { display: none; }
+
+        /* Nav Area */
+        .header__nav-area {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0 40px;
+        }
+        .header__nav ul {
+            display: flex;
+            gap: 28px;
+            margin-right: 30px;
+        }
+        .header__nav a {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #333333;
+            font-family: 'Noto Sans JP', sans-serif;
+            transition: color 0.3s;
+        }
+        .header__nav a:hover { color: var(--color-red); }
+        .header__nav a.active { color: var(--color-red); }
+
+        /* Contact Button */
+        .header__btn {
+            background-color: #c80b1b;
+            color: var(--color-white);
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(200, 11, 27, 0.4);
+            white-space: nowrap;
+        }
+        .header__btn:hover { background-color: #a00818; transform: translateY(-2px); }
+        .header__btn img.icon-send {
+            width: 20px;
+            height: 17px;
+        }
+
+        /* ---- Hero Section ---- */
+        .hero-re {
+            position: relative;
+            width: 100%;
+            z-index: 10;
+            padding: 20px 0 20px 0;
             background-color: #172439;
             background-image: repeating-linear-gradient(
                 -45deg,
@@ -59,164 +150,124 @@
                 rgba(255, 255, 255, 0.03) 4px,
                 rgba(255, 255, 255, 0.03) 8px
             );
-            padding-bottom: 80px;
-            position: relative;
-        }
-
-        .header {
-            display: flex;
-            height: 100px;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 40px;
-            position: relative;
-            z-index: 100;
-        }
-        .header__logo-area { width: 300px; display: flex; align-items: center; color: var(--color-white); }
-        .logo-mark { position: relative; width: 40px; height: 40px; border: 2px solid var(--color-white); border-radius: 50%; margin-right: 15px; display: flex; justify-content: center; align-items: center; }
-        .logo-mark::after { content: ''; position: absolute; width: 30px; height: 2px; background-color: var(--color-orange); transform: rotate(-45deg); }
-        .logo-text { font-size: 1.4rem; font-weight: bold; letter-spacing: 0.05em; }
-        
-        .header__nav-area { flex: 1; display: flex; justify-content: flex-end; align-items: center; }
-        .header__nav ul { display: flex; gap: 30px; margin-right: 40px; }
-        .header__nav a { font-size: 0.95rem; font-weight: bold; color: #ffffff; transition: opacity 0.3s; }
-        .header__nav a:hover { opacity: 0.7; }
-        .header__btn { background-color: var(--color-red); color: var(--color-white); padding: 12px 30px; border-radius: 30px; font-weight: bold; font-size: 0.95rem; display: flex; align-items: center; gap: 10px; transition: background-color 0.3s; box-shadow: 0 4px 10px rgba(201, 23, 30, 0.4); }
-        .header__btn:hover { background-color: #a81218; transform: translateY(-2px); }
-
-        .hero-re {
-            max-width: 1300px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 10;
         }
         .hero-re__image-box {
             position: relative;
-            width: 100%;
-            height: 600px;
-            clip-path: polygon(5% 0, 100% 0, 95% 100%, 0 100%);
+            width: calc(100% - 80px);
+            max-width: 1760px;
+            height: 660px;
             overflow: hidden;
-            background-color: #fff;
+            background-color: #042546;
+            margin: 0 auto;
+            clip-path: polygon(0 0, calc(100% - 60px) 0, 100% 100%, 0 100%);
         }
-        
-        /* ★ここでトップ画像を指定しています */
+
+        /* 背景画像 */
         .hero-re__bg {
             position: absolute;
-            top: -10%; left: -10%; right: -10%; bottom: -10%;
-            /* 変更: お客様ご指定の画像ファイル名（半角英数字推奨） */
-            background-image: url('./top-bg.jpg'); 
-            background-size: cover;
-            background-position: center;
-            animation: zoomBg 20s infinite alternate linear;
-        }
-
-        .hero-re__blur {
-            position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: radial-gradient(ellipse 55% 85% at center, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.8) 40%, rgba(255,255,255,0) 80%);
+            background-image: url('./hero-main.webp');
+            background-size: cover;
+            background-position: center top;
         }
 
-        .hero-re__copy-wrap {
+        /* テキストオーバーレイ画像 */
+        .hero-re__text-overlay {
             position: absolute;
-            top: 50%; left: 50%;
-            transform: translate(-50%, -50%);
-            width: 85%;
-            max-width: 750px;
-            animation: fadeInUp 1s ease-out forwards;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 580px;
+            pointer-events: none;
         }
-        .hero-re__frame {
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            padding: 60px 40px;
-            text-align: center;
-        }
-        .hero-re__main {
-            font-family: var(--font-family-serif);
-            font-size: 3.4rem;
-            color: var(--color-primary);
-            font-weight: bold;
-            line-height: 1.4;
-            margin-bottom: 20px;
-            text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff;
-        }
-        .hero-re__sub {
-            font-size: 1rem;
-            color: #444;
-            font-weight: bold;
-            letter-spacing: 0.05em;
-            line-height: 1.6;
+        .hero-re__text-overlay img {
+            width: 100%;
+            height: auto;
         }
 
+        /* バッジ群 */
         .hero-re__badges {
             position: absolute;
-            bottom: 40px;
-            left: 8%;
+            bottom: 60px;
+            left: 5%;
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            opacity: 0;
-            animation: badgeFadeIn 1s ease-out 0.4s forwards;
+            gap: 6px;
         }
         .hero-re__badges span {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 10px 20px;
             color: #fff;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: bold;
-            letter-spacing: 0.05em;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            font-family: 'Noto Sans JP', sans-serif;
+            letter-spacing: 0.03em;
         }
-        .b-red1 { background-color: #d33833; }
+        .b-red1 { background-color: #c80b1b; }
         .b-orange { background-color: #f39800; }
-        .b-red2 { background-color: #e55a39; }
+        .b-red2 { background-color: #c80b1b; }
 
-        @keyframes zoomBg {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.15); }
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translate(-50%, -40%); }
-            100% { opacity: 1; transform: translate(-50%, -50%); }
-        }
-        @keyframes badgeFadeIn {
-            0% { opacity: 0; transform: translateY(20px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
+        /* ---- Top News Bar ---- */
         .top-news-re {
-            max-width: 1200px;
-            margin: -30px auto 0;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 0 0 0;
             position: relative;
             z-index: 20;
             display: flex;
-            height: 80px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            height: 126px;
+            box-shadow: 3px 3px 10px 0px rgba(45, 50, 63, 0.20);
+            background: #fff;
         }
         .news-re__label {
-            background-color: #c9171e;
+            background-color: #c80b1b;
             color: #fff;
-            font-family: 'Arial Black', sans-serif;
-            font-size: 1.4rem;
+            font-family: 'Anton', 'Arial Black', sans-serif;
+            font-size: 1.375rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 40px;
-            width: 220px;
+            width: 200px;
             flex-shrink: 0;
-            clip-path: polygon(0 0, 100% 0, calc(100% - 25px) 100%, 0 100%);
         }
         .news-re__content {
             background-color: #ffffff;
             flex: 1;
             display: flex;
-            align-items: center;
-            padding: 0 40px;
-            margin-left: -25px;
-            clip-path: polygon(25px 0, 100% 0, calc(100% - 25px) 100%, 0 100%);
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 45px;
         }
-        .news-re__tag { border: 1px solid var(--color-red); color: var(--color-red); padding: 2px 12px; font-size: 0.85rem; font-weight: bold; margin-right: 15px; }
-        .news-re__date { color: #888; font-family: Arial, sans-serif; font-size: 0.9rem; margin-right: 20px; }
-        .news-re__title { font-weight: bold; font-size: 0.95rem; color: #333; cursor: pointer; }
+        .news-re__top-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 8px;
+        }
+        .news-re__tag {
+            border: 1px solid #c80b1b;
+            color: #c80b1b;
+            padding: 2px 13px;
+            font-size: 0.875rem;
+            font-weight: bold;
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .news-re__date {
+            color: #999ca1;
+            font-family: 'Noto Sans JP', sans-serif;
+            font-size: 0.875rem;
+            font-weight: bold;
+        }
+        .news-re__title {
+            font-weight: bold;
+            font-size: 1rem;
+            color: #042546;
+            cursor: pointer;
+            font-family: 'Noto Sans JP', sans-serif;
+            line-height: 1.5;
+        }
         .news-re__title:hover { text-decoration: underline; color: var(--color-accent); }
 
         /* ==========================================================================
@@ -476,9 +527,9 @@
            ========================================================================== */
         @media (max-width: 1024px) {
             .header__nav ul { gap: 15px; }
-            .hero-re__main { font-size: 2.5rem; }
-            .hero-re__frame { padding: 40px 30px; }
-            .hero-re__badges { left: 5%; }
+            .hero-re__image-box { height: 560px; }
+            .hero-re__text-overlay { width: 50%; right: 3%; }
+            .hero-re__badges { left: 3%; bottom: 40px; }
             .tech-row, .tech-row.reverse { gap: 40px; }
             .news-grid { grid-template-columns: repeat(2, 1fr); }
             .trace-section { gap: 40px; }
@@ -487,10 +538,12 @@
         }
 
         @media (max-width: 900px) {
-            .hero-re__image-box { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+            .hero-re__image-box { height: 480px; }
+            .hero-re__text-overlay { width: 60%; right: 2%; }
             .hero-re__badges { left: 20px; bottom: 20px; }
             .top-news-re { flex-direction: column; height: auto; margin: 0; }
-            .news-re__label, .news-re__content { clip-path: none; width: 100%; margin-left: 0; padding: 15px 20px; justify-content: center; }
+            .news-re__label { width: 100%; padding: 15px 20px; }
+            .news-re__content { padding: 15px 20px; }
 
             .scheme-infographic { padding: 20px; }
             .scheme-flow { flex-direction: column; }
@@ -526,9 +579,9 @@
             .header__nav-area { width: 100%; justify-content: center; flex-wrap: wrap; }
             .header__nav ul { margin: 0 0 15px 0; flex-wrap: wrap; justify-content: center; gap: 15px; }
             
-            .hero-re__main { font-size: 2rem; }
-            .hero-re__frame { padding: 30px 15px; }
-            .hero-re__badges span { font-size: 0.95rem; padding: 8px 15px; }
+            .hero-re__image-box { height: 380px; }
+            .hero-re__text-overlay { width: 75%; right: 1%; top: 40%; }
+            .hero-re__badges span { font-size: 0.85rem; padding: 8px 14px; }
 
             .problem__cards { flex-direction: column; }
             .solution-pillars { flex-direction: column; gap: 50px; }
@@ -568,66 +621,47 @@
 <body>
 
     <div class="top-area-wrapper">
-        <!-- Header -->
+        <!-- Header (Figma Design) -->
         <header class="header">
             <div class="header__logo-area">
-                <div class="logo-mark"></div>
-                <div class="logo-text">Ethical Community</div>
+                <img src="./logo-amu.svg" alt="AMU経営研究所" class="logo-amu-img">
             </div>
             <div class="header__nav-area">
                 <nav class="header__nav">
                     <ul>
                         <li><a href="#" class="active">ホーム</a></li>
-                        <li><a href="#about">課題</a></li>
-                        <li><a href="#solution">解決策</a></li>
-                        <li><a href="#technology">テクノロジー</a></li>
-                        <li><a href="#scheme">LLPスキーム</a></li>
+                        <li><a href="#support">支援メニュー</a></li>
+                        <li><a href="#about">AMUについて</a></li>
+                        <li><a href="#strength">強み・特徴</a></li>
+                        <li><a href="#results">実績紹介</a></li>
+                        <li><a href="#cases">事例紹介</a></li>
+                        <li><a href="#column">コラム</a></li>
                     </ul>
                 </nav>
                 <a href="contact.html" class="header__btn">
-                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
-                        <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                    </svg>
+                    <img src="./icon-send.svg" alt="" class="icon-send">
                     お問い合わせ
                 </a>
             </div>
         </header>
 
-        <!-- Hero Section -->
+        <!-- Hero Section (Figma Design) -->
         <section class="hero-re">
             <div class="hero-re__image-box">
-                <!-- ★背景画像ファイルへのパス -->
+                <!-- 背景画像（テキスト・バッジ含む） -->
                 <div class="hero-re__bg"></div>
-                <div class="hero-re__blur"></div>
-                
-                <div class="hero-re__copy-wrap">
-                    <div class="hero-re__frame">
-                        <p class="hero-re__main">
-                            法定雇用率の達成と、<br>
-                            「現場負担の最小化」を<br>
-                            両立する新しい選択肢。
-                        </p>
-                        <p class="hero-re__sub">
-                            独自のAI教育×リモート管理技術で実現する、<br>持続可能な障害者雇用モデル「エシカルコミュニティLLP」。
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="hero-re__badges">
-                    <span class="b-red1">初期採用コスト0円と 現場負担軽減</span>
-                    <span class="b-orange">弁護士・社労士監修の 安心体制</span>
-                    <span class="b-red2">経済産業省推進の LLPスキーム</span>
-                </div>
             </div>
         </section>
 
-        <!-- Top News -->
+        <!-- Top News (Figma Design) -->
         <section class="top-news-re">
             <div class="news-re__label">Top News.</div>
             <div class="news-re__content">
-                <span class="news-re__tag">お知らせ</span>
-                <span class="news-re__date">2024.10.01</span>
-                <span class="news-re__title">持続可能な障害者雇用モデル「エシカルコミュニティLLP」公式サイトを公開しました。</span>
+                <div class="news-re__top-row">
+                    <span class="news-re__tag">お知らせ</span>
+                    <span class="news-re__date">2026.01.06</span>
+                </div>
+                <span class="news-re__title">コラム「人事部門はもっと「産業医」を活用しよう 専門家の介入で人事の心理負担を大幅に減らす」を公開しました。</span>
             </div>
         </section>
     </div>
